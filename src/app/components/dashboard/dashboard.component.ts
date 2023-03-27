@@ -7,7 +7,7 @@ import { AnalysisService } from 'src/app/services/analysis/analysis.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  analysisData;
+  analysisData: { no_of_invoices: number };
 
   constructor(private analysisSvc: AnalysisService,) { }
 
@@ -16,8 +16,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getAnalysisData() {
-    this.analysisSvc.get().subscribe((res: any) => {
-      this.analysisData = res;
+    this.analysisSvc.get().subscribe((res: { invoice: { no_of_invoices: number } }) => {
+      this.analysisData = res.invoice;
+      console.log(this.analysisData)
     }, err => {
       // TODO: error handing
     })

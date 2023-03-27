@@ -29,4 +29,8 @@ export class ReleaseService {
   makeCurrentVersion(id) {
     return this.http.put(`${this.url}/make-current/${id}`, {});
   }
+
+  deleteRelease(id){
+    return this.http.delete(`${this.url}/delete/${id}`);
+  }
 }

@@ -1,0 +1,142 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* Global Variables */
+:root {
+  --bs-body-font-size: 14px !important;
+  --header-height: 3rem;
+  --nav-width: 68px;
+  --first-color: #f75c52;
+  --first-color-light: #fa8e88;
+  --success-color: #49A600;
+  --white-color: #FFFFFF;
+  --normal-font-size: 1rem;
+  --z-fixed: 100;
+}
+
+/* Font */
+@font-face {
+  font-family: "TiltNeon";
+  src: url("./assets/fonts/Arimo/static/Arimo-Regular.ttf");
+}
+
+body {
+  font-family: "TiltNeon" !important;
+}
+
+/*******************************************
+* Bootstrap card customization
+********************************************/
+.card-header {
+  border-bottom: none !important;
+  background-color: transparent !important;
+}
+.card {
+  border: none !important;
+  box-shadow: 0 14px 28px rgb(0 0 0 / 10%), 0 10px 10px rgb(0 0 0 / 10%);
+  border-radius: 10px !important;
+}
+
+/*******************************************
+* Bootstrap alert customization
+********************************************/
+.alert-danger {
+  --bs-alert-bg: #ffe8ea !important;
+  --bs-alert-border-color: none !important;
+  --bs-alert-padding-x: 0.5rem !important;
+  --bs-alert-padding-y: 0.5rem !important;
+}
+
+#wrapper {
+  padding-top: calc(var(--header-height) + 1rem);
+  transition: 0.5s;
+}
+
+.wrapper-loogedIn {
+  padding-left: calc(var(--nav-width));
+}
+
+.body-pd {
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+@media screen and (min-width: 768px) {
+  .body-pd {
+    padding-left: calc(var(--nav-width) + 156px);
+  }
+}
+
+/*******************************************
+* Bootstrap accordion customization
+********************************************/
+.accordion-item {
+  border: 1px solid #dddddd !important;
+}
+.accordion-header button {
+  border: 1px solid #f7f7f7 !important;
+  background-color: #f7f7f7 !important;
+}
+.accordion-button:not(.collapsed){
+  color: #000 !important;
+}
+.accordion-button:focus{
+  box-shadow: none !important;
+}
+
+/*******************************************
+* Bootstrap input customization
+********************************************/
+.form-control{
+  border: 1px solid #d7dfe7 !important;
+  border-radius: 0px !important;
+}
+.form-control:focus{
+  box-shadow: none!important;
+}
+.invoice-input {
+  border: none !important;
+  border-bottom: 1px dashed #bfbfbf !important;
+}
+
+/*******************************************
+* Bootstrap button customization
+********************************************/
+.btn-primary {
+  background-color: var(--first-color) !important;
+  border-color: var(--first-color) !important;
+}
+.btn-outline-primary {
+  border-color: var(--first-color) !important;
+  color: var(--first-color) !important;
+}
+.btn-outline-primary:hover {
+  background-color: var(--first-color) !important;
+  border-color: var(--first-color) !important;
+  color: var(--white-color) !important;
+}
+.btn-success {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+}
+.btn-outline-success {
+  border-color: var(--success-color) !important;
+  color: var(--success-color) !important;
+}
+.btn-outline-success:hover {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+  color: var(--white-color) !important;
+}
+
+/*******************************************
+* Common CSS
+********************************************/
+.pointer {
+  cursor: pointer;
+}
+a {
+  text-decoration: none !important;
+}
+.title {
+  font-size: 22px;
+  margin-bottom: 0px;
+}

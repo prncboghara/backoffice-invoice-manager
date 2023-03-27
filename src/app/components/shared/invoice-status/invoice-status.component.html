@@ -1,0 +1,10 @@
+<ng-container [ngSwitch]="status">
+    <span *ngSwitchCase="'draft'" class="badge bg-secondary">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'sent'" class="badge bg-primary">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'pending'" class="badge bg-warning">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'paid'" class="badge bg-success">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'overdue'" class="badge bg-danger">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'cancelled'" class="badge bg-danger">{{status | titlecase}}</span>
+    <span *ngSwitchCase="'refunded'" class="badge bg-primary">{{status | titlecase}}</span>
+    <span *ngSwitchDefault>not found</span>
+</ng-container>

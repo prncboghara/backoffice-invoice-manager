@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <div class="text-center">
+      <h3>{{ title }}</h3>
+      <h1>
+        <i class="fa fa-times-circle text-danger" aria-hidden="true"></i>
+      </h1>
+      <p>
+        <small>{{ description }}</small>
+      </p>
+      <button
+        *ngIf="backButtonTitle"
+        (click)="goBack()"
+        class="btn bg-white border-1 border-dark btn-light"
+      >
+        {{ backButtonTitle }}
+      </button>
+    </div>
+  </div>
+</div>

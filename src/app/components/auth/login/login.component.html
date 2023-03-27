@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="mt-5 offset-md-3 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>Login</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" (submit)="onSubmit()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+          </div>
+          <div class="alert alert-sm alert-danger" *ngIf="error">
+            {{ error }}
+          </div>
+          <button
+            type="submit"
+            [disabled]="!form.valid"
+            class="btn rounded-pill btn-primary"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

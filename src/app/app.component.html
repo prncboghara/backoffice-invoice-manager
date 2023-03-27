@@ -1,0 +1,12 @@
+<!-- HEADER -->
+<app-header></app-header>
+
+<app-sidebar *ngIf="checkIsLoggedIn"></app-sidebar>
+
+<!-- COMPONENTS -->
+<div id="wrapper" [ngClass]="checkIsLoggedIn ? 'wrapper-loogedIn body-pd' : ''">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- LOADER -->
+<ngx-ui-loader></ngx-ui-loader>

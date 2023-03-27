@@ -1,0 +1,1 @@
+export const INVOICE_STATUS = ['draft', 'sent', 'pending', 'overdue', 'paid', 'cancelled', 'refunded']

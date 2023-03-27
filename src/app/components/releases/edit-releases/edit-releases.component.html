@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="alert alert-warning my-2" *ngIf="form.get('is_current').value">Warning! You updating/viewing current website version. Please be careful</div>
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <p class="title">
+      <i class="bx bx-message-square-detail"></i> Create New Release
+    </p>
+    <div *ngIf="!editMode">
+      <button class="btn btn-sm btn-success me-2" [disabled]="form.get('is_current').value" (click)="makeCurrentVersion()">Make Current</button>
+      <button class="btn btn-sm btn-primary" (click)="editRelease()">Edit Release</button>
+    </div>
+    <div *ngIf="editMode">
+      <button class="btn btn-sm me-2 btn-light" (click)="cancleUpdate()">CANCEL</button>
+      <button class="btn btn-sm btn-primary" [disabled]="!form.valid" (click)="saveRelease()">{{mode === 'create' ? 'Save Release' : 'Update Release'}}</button>
+    </div>
+  </div>
+  <hr />
+  <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+  <div>
+    <form [formGroup]="form">
+      <div class="row">
+        <!-- VERSION -->
+        <div class="col-12 my-2">
+          <label for="version" class="form-label">Version</label>
+          <input
+            *ngIf="editMode"
+            type="text"
+            class="form-control"
+            id="version"
+            formControlName="version"
+          />
+          <p *ngIf="!editMode">{{form.get('version').value || '--'}}</p>
+        </div>
+        <!-- DESCRIPTION START -->
+        <div class="col-12 my-2">
+          <label for="description_start" class="form-label">Description Start</label>
+          <textarea
+            type="email"
+            class="form-control"
+            formControlName="description_start"
+            id="description_start"
+            *ngIf="editMode"
+          ></textarea>
+          <p *ngIf="!editMode">{{form.get('description_start').value || '--'}}</p>
+        </div>
+        <!-- NEW FEATURES -->
+        <app-features [form]="form" [editMode]="editMode"></app-features>
+        <!-- BUG FIXES -->
+        <app-bugs [form]="form" [editMode]="editMode"></app-bugs>
+        <!-- DESCRIPTION END -->
+        <div class="col-12 my-2">
+          <div>
+            <label for="description_end" class="form-label"
+              >Description End</label
+            >
+            <textarea
+              *ngIf="editMode"
+              type="text"
+              class="form-control"
+              formControlName="description_end"
+              id="description_end"
+            ></textarea>
+            <p *ngIf="!editMode">{{form.get('description_start').value || '--'}}</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

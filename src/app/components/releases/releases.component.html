@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <p class="title"><i class="bx bx-message-square-detail"></i> Releases</p>
+    <div>
+      <button class="btn btn-sm btn-primary" (click)="addRelease()">Add Release</button>
+    </div>
+  </div>
+  <hr />
+  <div class="table-responsive" *ngIf="isFound">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Version</th>
+          <th scope="col">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let release of releases" (click)="editRelease(release)" class="pointer">
+          <td>
+            {{ release.version }}
+            <p class="mb-0"><span *ngIf="release.is_current" class="badge bg-success">CURRENT</span></p>
+          </td>
+          <td>{{ release.createdAt | date : "MMM dd, YYYY HH:mm a" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-error-message [title]="'No Releases Found'" *ngIf="!isFound">
+  </app-error-message>
+</div>

@@ -1,0 +1,63 @@
+<div class="col-12 my-2" [formGroup]="form">
+  <div class="border p-3" formArrayName="new_features">
+    <div class="d-flex justify-content-between">
+      <p class="mb-0"><b>New Features</b></p>
+      <button class="btn btn-sm btn-primary" *ngIf="editMode" (click)="addNewFeature()">
+        Add New Feature
+      </button>
+    </div>
+    <div *ngFor="let feature of newFeatures.controls; let i = index">
+      <div [formGroup]="feature" class="border p-2 my-2">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-sm btn-danger" *ngIf="editMode" (click)="removeFeature(i)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+        <div class="mb-2">
+          <label for="version" class="form-label"><b>Feature Name</b></label>
+          <input
+            *ngIf="editMode"
+            type="text"
+            class="form-control"
+            id="version"
+            formControlName="name"
+          />
+          <p *ngIf="!editMode">{{feature.get('name').value || '--'}}</p>
+        </div>
+        <div class="border p-2" formArrayName="lists">
+          <div class="text-end">
+            <button class="btn btn-sm btn-primary" *ngIf="editMode" (click)="addLists(feature)">
+              Add List
+            </button>
+          </div>
+          <label for="version" class="form-label"><b>Lists</b></label>
+          <div
+            *ngFor="let list of feature.get('lists').controls; let i = index"
+          >
+            <div class="row align-items-center">
+              <div class="col-10">
+                <input
+                  *ngIf="editMode"
+                  type="text"
+                  class="form-control mb-2"
+                  id="version"
+                  [formControlName]="i"
+                />
+                <p *ngIf="!editMode">{{list?.value || '--'}}</p>
+              </div>
+              <div class="col-2">
+                <button
+                  *ngIf="editMode"
+                  class="btn btn-sm btn-danger"
+                  (click)="removeLists(feature, i)"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

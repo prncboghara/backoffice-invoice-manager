@@ -26,8 +26,6 @@
     "@ng-select/ng-select": "^10.0.4",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.3",
-    "boxicons": "^2.1.4",
-    "font-awesome": "^4.7.0",
     "ng-recaptcha": "^11.0.0",
     "ngx-hotjar": "^11.0.0",
     "ngx-ui-loader": "^13.0.0",

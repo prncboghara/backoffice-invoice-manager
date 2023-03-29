@@ -9,8 +9,8 @@
     <div *ngFor="let feature of newFeatures.controls; let i = index">
       <div [formGroup]="feature" class="border p-2 my-2">
         <div class="d-flex justify-content-end">
-          <button class="btn btn-sm btn-danger" *ngIf="editMode" (click)="removeFeature(i)">
-            <i class="fa fa-trash"></i>
+          <button class="btn btn-sm btn-link text-danger" *ngIf="editMode" (click)="removeFeature(i)">
+            <i class="material-icons">delete</i>
           </button>
         </div>
         <div class="mb-2">
@@ -48,10 +48,10 @@
               <div class="col-2">
                 <button
                   *ngIf="editMode"
-                  class="btn btn-sm btn-danger"
+                  class="btn btn-sm btn-link text-danger"
                   (click)="removeLists(feature, i)"
                 >
-                  <i class="fa fa-trash"></i>
+                <i class="material-icons">delete</i>
                 </button>
               </div>
             </div>

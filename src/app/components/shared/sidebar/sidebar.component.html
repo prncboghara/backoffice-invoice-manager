@@ -8,14 +8,14 @@
       <div class="nav_list">
         <ng-container *ngFor="let menu of menus">
           <a class="nav_link pointer" [ngClass]="menu.routing === active ? 'active' : ''" (click)="navigate(menu.routing)">
-            <i class="bx nav_icon" [ngClass]="menu.icon"></i>
+            <i class="material-icons nav_icon">{{menu.icon}}</i>
             <span class="nav_name">{{menu.label}}</span>
           </a>
         </ng-container>
       </div>
     </div>
     <a class="nav_link pointer" (click)="logout()">
-      <i class="bx bx-log-out nav_icon"></i>
+      <i class="material-icons nav_icon">logout</i>
       <span class="nav_name">SignOut</span>
     </a>
   </nav>

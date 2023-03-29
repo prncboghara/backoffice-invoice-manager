@@ -13,15 +13,15 @@ export class SidebarComponent implements OnInit {
   menus: { label: string, routing: string, icon: string }[] = [{
     label: "Dashboard",
     routing: "/dashboard",
-    icon: "bx-grid-alt"
+    icon: "dashboard"
   }, {
     label: "Users",
     routing: "/users",
-    icon: "bx-user"
+    icon: "people"
   }, {
     label: "Releases",
     routing: "/releases",
-    icon: "bx-message-square-detail"
+    icon: "new_releases"
   }]
   active:string = '/dashboard';
 

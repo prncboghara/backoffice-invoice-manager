@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IRelease } from 'src/app/models/releases';
 import { ReleaseFormService } from 'src/app/services/release/release-form.service';
 import { ReleaseService } from 'src/app/services/release/release.service';
+import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-edit-releases',
@@ -16,7 +18,8 @@ export class EditReleasesComponent implements OnInit {
     private releaseSvc: ReleaseService,
     private releaseFormSvc: ReleaseFormService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private modalService: NgbModal) { }
   form: FormGroup = this.releaseFormSvc.initForm(null);
   id: string;
   editMode: boolean = false;
@@ -78,6 +81,20 @@ export class EditReleasesComponent implements OnInit {
       this.router.navigate(['/releases'])
     }, err => {
       this.errorMsg = err.error.error
+    })
+  }
+
+  deleteRelease() {
+    const modalRef = this.modalService.open(ConfirmationComponent)
+    modalRef.componentInstance.title = 'Confirmation'
+    modalRef.componentInstance.descirption = 'Are you sure want to delete this release?'
+    modalRef.result.then(res => {
+      if (!res) return
+      this.releaseSvc.deleteRelease(this.form.value._id).subscribe(res => {
+        this.router.navigate(['/releases'])
+      }, err => {
+        this.errorMsg = err.error.error
+      })
     })
   }
 }

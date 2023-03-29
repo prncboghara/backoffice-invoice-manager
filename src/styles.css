@@ -1,4 +1,5 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import "./assets/css/material-icon.css";
 
 /* Global Variables */
 :root {

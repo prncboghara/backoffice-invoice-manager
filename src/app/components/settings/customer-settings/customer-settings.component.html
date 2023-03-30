@@ -1,0 +1,49 @@
+<div class="col-12 my-2" [formGroup]="form">
+  <div class="border p-3" formArrayName="customer_settings">
+    <div class="d-flex justify-content-between">
+      <p class="mb-0"><b>Customer Settings</b></p>
+      <button
+        class="btn btn-sm btn-primary"
+        *ngIf="editMode"
+        (click)="addSetting()"
+      >
+        Add New Settings
+      </button>
+    </div>
+    <div *ngFor="let setting of customerSettings.controls; let i = index">
+      <div [formGroup]="setting" class="border p-2 my-2">
+        <div class="d-flex justify-content-end">
+          <button
+            class="btn btn-sm btn-link text-danger"
+            *ngIf="editMode"
+            (click)="removeSetting(i)"
+          >
+            <i class="material-icons">delete</i>
+          </button>
+        </div>
+        <div class="mb-2">
+          <label for="version" class="form-label"><b>Group Name</b></label>
+          <input
+            *ngIf="editMode"
+            type="text"
+            class="form-control"
+            id="version"
+            formControlName="group_name"
+          />
+          <p *ngIf="!editMode">{{ setting.get("group_name").value || "--" }}</p>
+        </div>
+        <div class="mb-2">
+          <label for="version" class="form-label"><b>Group Key</b></label>
+          <input
+            *ngIf="editMode"
+            type="text"
+            class="form-control"
+            id="version"
+            formControlName="group_key"
+          />
+          <p *ngIf="!editMode">{{ setting.get("group_key").value || "--" }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

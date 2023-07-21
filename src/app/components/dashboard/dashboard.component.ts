@@ -16,12 +16,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getAnalysisData() {
-    this.analysisSvc.get().subscribe((res: { invoice: { no_of_invoices: number } }) => {
-      this.analysisData = res.invoice;
-      console.log(this.analysisData)
-    }, err => {
-      // TODO: error handing
-    })
   }
 
 }

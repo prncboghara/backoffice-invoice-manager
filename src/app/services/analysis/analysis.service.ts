@@ -8,8 +8,4 @@ import { environment } from 'src/environments/environment';
 export class AnalysisService {
   url: string = `${environment.end_point}/analysis`;
   constructor(private http: HttpClient) { }
-
-  get() {
-    return this.http.get(this.url);
-  }
 }

@@ -23,13 +23,6 @@ export class SettingsComponent {
 
 
   getSettings() {
-    this.isFound = true
-    this.settingsSvc.getAllSettings().subscribe((res: { settings: ISettings[] }) => {
-      this.settings = res.settings;
-      if (this.settings && this.settings.length) this.isFound = true
-    }, err => {
-      this.isFound = false
-    })
   }
 
   addSettings() {

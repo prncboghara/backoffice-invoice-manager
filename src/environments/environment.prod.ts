@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  end_point: 'https://api.dadword.com/admin',
+  end_point: 'https://invoice-manager-backend.onrender.com',
   recaptcha: {
     siteKey: '6Lf11R0lAAAAALbcWSv-_wBO6XjXNcDe520Uk_87',
   },

@@ -22,6 +22,10 @@ export class SidebarComponent implements OnInit {
     label: "Releases",
     routing: "/releases",
     icon: "new_releases"
+  },{
+    label: "Settings",
+    routing: "/settings",
+    icon: "settings"
   }]
   active:string = '/dashboard';
 
